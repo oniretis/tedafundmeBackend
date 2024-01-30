@@ -22,7 +22,7 @@ export const sendEmail = async (to: string, subject: string, text: string) => {
     });
 
     const mailOptions = {
-      from: `Drazex ${process.env.GMAIL_USER}`,
+      from: `Teda ${process.env.GMAIL_USER}`,
       to,
       subject,
       text,
