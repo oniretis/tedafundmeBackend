@@ -11,7 +11,7 @@ export type TCampaign = Document & {
   location: string;
   currentGoal: number;
   coverMedia: string;
-  donors: TDonor[];
+  donors: mongoose.Types.ObjectId[];
 };
 
 const campaignSchema: Schema = new Schema({
@@ -21,9 +21,9 @@ const campaignSchema: Schema = new Schema({
   goal: { type: Number, required: true },
   category: { type: String, enum: ['HEALTH, "EDUCATION'], required: true },
   location: { type: String, required: true },
-  currenGoal: { type: Number, required: true },
+  currenGoal: { type: Number, default: 0 },
   coverMedia: { type: String, required: true },
-  donors: { type: [Donor], default: [] },
+  donors: [{ type: Schema.Types.ObjectId, ref: "Donor" }],
 });
 
 export default mongoose.model<TCampaign>("Campaign", campaignSchema);

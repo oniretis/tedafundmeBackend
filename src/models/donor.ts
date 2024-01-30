@@ -13,4 +13,5 @@ const donorSchema: Schema = new Schema({
   amount: { type: Number, required: true },
   campaignId: { type: Schema.Types.ObjectId, ref: "Campaign", required: true },
 });
-export default mongoose.model<TDonor>("Campaign", donorSchema);
+
+export default mongoose.model<TDonor>("Donor", donorSchema); // Use "Donor" as the model name
